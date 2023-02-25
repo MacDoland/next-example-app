@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { HelloWorld } from "jm-component-library";
+import { HelloWorld, Button } from "jm-component-library";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +20,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <HelloWorld />
+        <Button>Hello!</Button>
       </main>
     </>
   );
