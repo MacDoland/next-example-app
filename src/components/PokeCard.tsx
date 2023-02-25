@@ -7,7 +7,7 @@ import {
   Button,
 } from "jm-component-library";
 
-export const PokeCard = ({ pokemon }) => {
+export const PokeCard = ({ pokemon }: any) => {
     const { name, imageUrl, description } = pokemon;
   return (
     <Card sx={{ flex: "1 0 11%", maxWidth: 345}}>

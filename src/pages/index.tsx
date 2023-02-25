@@ -5,7 +5,7 @@ import styles from "@/styles/Home.module.css";
 import { cachedFetch } from "utils/cachedFetch";
 import { PokeCard } from "@/components/PokeCard";
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const pokemon = await cachedFetch(
     "https://pokedex-api.azurewebsites.net/api/pokemons/0/50"
   );
@@ -17,7 +17,7 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default function Home({ pokemon }) {
+export default function Home({ pokemon }: any) {
 
   return (
     <>
@@ -31,8 +31,8 @@ export default function Home({ pokemon }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        {pokemon.data.map((item) => {
-          return <PokeCard pokemon={item} />;
+        {pokemon?.data.map((item: any, index: any) => {
+          return <PokeCard key={index} pokemon={item} />;
         })}
       </main>
     </>

@@ -1,7 +1,7 @@
 
 import cache from "memory-cache";
 
-export const cachedFetch = async (url) => {
+export const cachedFetch = async (url:string) => {
     const cachedResponse = cache.get(url);
     if (cachedResponse) {
       return cachedResponse;
