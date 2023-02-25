@@ -2,11 +2,23 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { HelloWorld, Button } from "jm-component-library";
+import { cachedFetch } from "utils/cachedFetch";
+import { PokeCard } from "@/components/PokeCard";
 
-const inter = Inter({ subsets: ["latin"] });
+export async function getServerSideProps(context) {
+  const pokemon = await cachedFetch(
+    "https://pokedex-api.azurewebsites.net/api/pokemons/0/50"
+  );
 
-export default function Home() {
+  return {
+    props: {
+      pokemon,
+    }, // will be passed to the page component as props
+  };
+}
+
+export default function Home({ pokemon }) {
+
   return (
     <>
       <Head>
@@ -19,8 +31,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <HelloWorld />
-        <Button>Hello!</Button>
+        {pokemon.data.map((item) => {
+          return <PokeCard pokemon={item} />;
+        })}
       </main>
     </>
   );
