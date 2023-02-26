@@ -1,5 +1,5 @@
 import { FormControl, InputLabel, Input, InputAdornment } from "@mui/material";
-import { Card, CardContent, Container, Typography } from "jm-component-library";
+import { SimpleNestedComponent, Card, CardContent, Container, Typography, Banner } from "jm-component-library";
 import Head from "next/head";
 
 export default function Login() {
@@ -15,6 +15,8 @@ export default function Login() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Banner />
+        <SimpleNestedComponent />
         <Container sx={{ minHeight: "100vw", p: 8 }}>
           <Card sx={{ maxWidth: 600 }}>
             <CardContent>
