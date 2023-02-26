@@ -12,6 +12,7 @@ export const PokeCard = ({ pokemon }: any) => {
   return (
     <Card sx={{ flex: "1 0 11%", maxWidth: 345}}>
       <CardMedia
+        component="img"
         sx={{ minHeight: 140 }}
         image={imageUrl}
         title={name}

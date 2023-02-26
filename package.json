@@ -17,7 +17,7 @@
     "@types/react-dom": "18.0.11",
     "eslint": "8.34.0",
     "eslint-config-next": "13.2.1",
-    "jm-component-library": "^0.2.9",
+    "jm-component-library": "^0.2.11",
     "memory-cache": "^0.2.0",
     "next": "13.2.1",
     "react": "18.2.0",

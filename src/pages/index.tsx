@@ -6,7 +6,6 @@ import { cachedFetch } from "utils/cachedFetch";
 import { PokeCard } from "@/components/PokeCard";
 import pokemonData from "utils/pokemon";
 import { Button } from "jm-component-library";
-import { useRouter } from 'next/router'
 
 export async function getServerSideProps() {
   // const pokemon = await cachedFetch(
@@ -23,7 +22,6 @@ export async function getServerSideProps() {
 }
 
 export default function Home({ pokemon }: any) {
-  const router = useRouter()
 
   return (
     <>
@@ -36,10 +34,10 @@ export default function Home({ pokemon }: any) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Button color="secondary" variant="outlined" onClick={() => { router.push('/login')  }}>Go To Login Page</Button>
+      <Button color="secondary" variant="outlined">Go To Login Page</Button>
       <main className={styles.main}>
         {pokemon?.data.map((item: any, index: any) => {
-          return <PokeCard key={index} pokemon={item} />;
+          return <PokeCard key={item.id} pokemon={item} />;
         })}
       </main>
     </>
